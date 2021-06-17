@@ -3,13 +3,19 @@ import './bootstrap.min.css';
 
 class EmotionTable extends React.Component {
     render() {
-      return (  
+        let emotionList = Object.entries(this.props.emotions.emotion);
+        let emotionTable = emotionList.map((emotion)=> {
+            return <tr>
+                <td >{emotion[0]} </td>
+                <td > {emotion[1]} </td>
+            </tr>
+        });
+      return (
         <div>
-          {/*You can remove this line and the line below. */}
-          {JSON.stringify(this.props.emotions)}
           <table className="table table-bordered">
             <tbody>
             {
+                emotionTable
                 //Write code to use the .map method that you worked on in the Hands-on React lab to extract the emotions
             }
             </tbody>
@@ -17,6 +23,6 @@ class EmotionTable extends React.Component {
           </div>
           );
         }
-    
+
 }
 export default EmotionTable;
